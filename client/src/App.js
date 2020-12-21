@@ -33,31 +33,31 @@ function App() {
         console.log(playlistsData.items);
         setPlaylists(playlistsData.items);
         setOwner(playlistsData.owner);
-        savePlaylist(playlistsData.items)
+        // savePlaylist(playlistsData.items)
       });
   }
 
-  const savePlaylist = (playlists) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-  };
-  if(playlists.length > 0){  playlists.map((playlist) => {
-    console.log(playlist);
-    return fetch("http://localhost:8888/playlists", 
-    requestOptions,{
-      name:'playlist',
-      description: 'hello',
-      owner: 'Hello',
-      image:'image'
-    }
-  ).then((response) => response.json())
-    .then((data) => {
-      console.log("Playlist enregistrée");
-      }
-    );
-  })}
-  }
+  // const savePlaylist = (playlists) => {
+  //   const requestOptions = {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  // };
+  //   playlists.map((playlist) => {
+  //   console.log(playlist);
+  //   return fetch("http://localhost:8888/playlists", 
+  //   requestOptions,{
+  //     name:'playlist',
+  //     description: 'hello',
+  //     owner: 'Hello',
+  //     image:'image'
+  //   }
+  // ).then((response) => response.json())
+  //   .then((data) => {
+  //     console.log("Playlist enregistrée");
+  //     }
+  //   );
+  // })
+  // }
   
   return (
     <div className="App">
@@ -67,7 +67,6 @@ function App() {
           playlists.map((playlist, index) => (
             <p className="playlist" key={index}>
               Playlist : {playlist.name} Description : {playlist.description}
-               {/* Owner: {owner} */}
             </p>
           ))
         ) : (
